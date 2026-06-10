@@ -1,101 +1,131 @@
-/* Rayo OS — editorial-calm theme.
-   Anchor: indigo seed oklch(0.53 0.125 294), "considered tool" calm authority.
-   Type carries the brand (Bricolage display + Hanken body + Geist Mono for the
-   real commands). Pure surfaces, one committed accent, generous space.
-   No serif-magazine affectation, no cream, no cards-by-reflex. */
+/* Rayo OS — drawn from marji.io: warm near-black canvas, cream ink, gold/brass
+   accent, Cormorant Garamond display + Inter body + JetBrains Mono commands.
+   Advisory-editorial. No purple. */
 
-@import '@fontsource-variable/hanken-grotesk';
-@import '@fontsource-variable/bricolage-grotesque';
-@import '@fontsource-variable/geist-mono';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/600-italic.css';
+@import '@fontsource/cormorant-garamond/700.css';
 
 :root {
-  --sl-font: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
-  --sl-font-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, 'SF Mono', monospace;
-  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', var(--sl-font);
+  --sl-font: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --sl-font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
 
-  /* Dark (default): deep cool near-black, bright indigo */
-  --sl-color-accent-low: oklch(0.30 0.07 294);
-  --sl-color-accent: oklch(0.62 0.15 294);
-  --sl-color-accent-high: oklch(0.88 0.06 294);
-  --sl-color-white: oklch(0.97 0.004 294);
-  --sl-color-black: oklch(0.17 0.012 294);
+  /* Dark (marji.io): warm near-black + cream + gold/brass */
+  --sl-color-accent-low: hsl(36 28% 20%);
+  --sl-color-accent: hsl(38 48% 57%);
+  --sl-color-accent-high: hsl(40 52% 82%);
+  --sl-color-white: hsl(42 26% 88%);
+  --sl-color-gray-1: hsl(40 18% 80%);
+  --sl-color-gray-2: hsl(38 12% 66%);
+  --sl-color-gray-3: hsl(36 9% 50%);
+  --sl-color-gray-4: hsl(35 9% 34%);
+  --sl-color-gray-5: hsl(33 10% 20%);
+  --sl-color-gray-6: hsl(30 11% 10%);
+  --sl-color-black: hsl(30 11% 4%);
 }
 
 :root[data-theme='light'] {
-  --sl-color-accent-low: oklch(0.93 0.035 294);
-  --sl-color-accent: oklch(0.52 0.15 294);
-  --sl-color-accent-high: oklch(0.37 0.12 294);
-  --sl-color-white: oklch(0.22 0.012 294); /* darkest = text */
-  --sl-color-black: oklch(1 0 0);          /* lightest = bg, pure white */
+  /* Warm paper variant of the same identity */
+  --sl-color-accent-low: hsl(38 46% 90%);
+  --sl-color-accent: hsl(35 58% 40%);
+  --sl-color-accent-high: hsl(33 60% 28%);
+  --sl-color-white: hsl(30 12% 12%); /* text */
+  --sl-color-gray-1: hsl(32 12% 22%);
+  --sl-color-gray-2: hsl(34 10% 40%);
+  --sl-color-gray-3: hsl(35 10% 52%);
+  --sl-color-gray-4: hsl(36 14% 70%);
+  --sl-color-gray-5: hsl(38 22% 86%);
+  --sl-color-gray-6: hsl(40 28% 94%);
+  --sl-color-black: hsl(38 30% 97%); /* bg */
 }
 
-/* Headings: display face, editorial weight + tracking */
+/* Headings: Cormorant display, elegant, upright */
 .sl-markdown-content :is(h1, h2),
 .content-panel h1 {
   font-family: var(--font-display);
-  font-weight: 650;
-  letter-spacing: -0.022em;
+  font-weight: 600;
+  letter-spacing: 0;
   text-wrap: balance;
-  line-height: 1.12;
+  line-height: 1.1;
 }
-.sl-markdown-content h1 { font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.1rem); }
-.sl-markdown-content h2 { font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.2rem); margin-top: 2.4em; }
-.sl-markdown-content :is(h3, h4) { font-weight: 600; letter-spacing: -0.008em; }
+.sl-markdown-content h1 { font-size: clamp(2.7rem, 1.9rem + 3vw, 3.9rem); }
+.sl-markdown-content h2 { font-size: clamp(2rem, 1.5rem + 1.8vw, 2.65rem); margin-top: 2.3em; }
+.sl-markdown-content :is(h3, h4) { font-family: var(--font-display); font-weight: 600; font-size: 1.55rem; letter-spacing: 0; }
 
-/* Body: comfortable weight + measure */
-.sl-markdown-content { font-weight: 380; line-height: 1.72; }
+/* Body: Inter, comfortable measure */
+.sl-markdown-content { font-weight: 400; line-height: 1.7; }
 .sl-markdown-content :is(p, li) { max-width: 72ch; }
-:root { --sl-line-height: 1.72; }
+:root { --sl-line-height: 1.7; }
 
-/* Wordmark */
+/* Wordmark: Cormorant */
 .site-title {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0;
 }
 
-/* Inline code = the real commands. Terminal-native, considered, not loud. */
+/* Inline code = the real commands. JetBrains Mono, warm gold chip. */
 .sl-markdown-content code:not(:where(pre code, a code)) {
   font-family: var(--sl-font-mono);
-  font-size: 0.86em;
-  font-weight: 480;
-  background: color-mix(in oklch, var(--sl-color-accent) 10%, transparent);
+  font-size: 0.83em;
+  font-weight: 500;
+  background: color-mix(in oklch, var(--sl-color-accent) 12%, transparent);
   color: var(--sl-color-text-accent);
-  border: 1px solid color-mix(in oklch, var(--sl-color-accent) 24%, transparent);
-  border-radius: 5px;
+  border: 1px solid color-mix(in oklch, var(--sl-color-accent) 26%, transparent);
+  border-radius: 4px;
   padding: 0.08em 0.38em;
 }
 
-/* Links: indigo, refined underline */
+/* Links: gold, refined underline */
 .sl-markdown-content a:not(:where(.not-content *)) {
   color: var(--sl-color-text-accent);
   text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
-  text-decoration-color: color-mix(in oklch, currentColor 38%, transparent);
+  text-decoration-color: color-mix(in oklch, currentColor 40%, transparent);
 }
 .sl-markdown-content a:hover { text-decoration-color: currentColor; }
 
-/* Splash hero — calm, large, balanced */
+/* Splash hero — elegant serif, large, balanced */
 .hero h1 {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.9rem, 1.6rem + 5vw, 5rem);
-  letter-spacing: -0.038em;
+  font-weight: 600;
+  font-size: clamp(3.4rem, 1.9rem + 6vw, 6rem);
+  letter-spacing: 0;
   line-height: 1.0;
   text-wrap: balance;
 }
 .hero .tagline {
-  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.35rem);
-  max-width: 44ch;
+  font-size: clamp(1.1rem, 0.95rem + 0.7vw, 1.4rem);
+  max-width: 46ch;
   font-weight: 400;
   color: var(--sl-color-gray-2);
 }
 
-/* Tables (the routing + skill maps) read as quiet rules, not cards */
+/* Tables read as quiet rules, not cards */
 .sl-markdown-content table { font-size: 0.95em; }
-.sl-markdown-content th { font-weight: 600; letter-spacing: -0.005em; }
+.sl-markdown-content th { font-weight: 600; }
 
-/* One calm entrance, reduced-motion safe */
+/* Planned badge for architecture stubs */
+.planned {
+  display: inline-block;
+  font-family: var(--sl-font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sl-color-accent);
+  border: 1px solid color-mix(in oklch, var(--sl-color-accent) 36%, transparent);
+  border-radius: 4px;
+  padding: 0.12em 0.5em;
+  vertical-align: middle;
+}
+
+/* One calm hero entrance, reduced-motion safe */
 @media (prefers-reduced-motion: no-preference) {
   .hero > * { animation: rayo-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
   .hero > *:nth-child(2) { animation-delay: 0.05s; }
@@ -106,22 +136,12 @@
   }
 }
 
-/* Home hero: the decide-loop diagram (hero.image.html). Mono labels, hairline
-   forward edges, indigo return arc that draws on load. */
-.loop-diagram {
-  width: 100%;
-  max-width: 440px;
-  height: auto;
-  margin-inline: auto;
-}
+/* Home hero: the decide-loop diagram (hero.image.html) */
+.loop-diagram { width: 100%; max-width: 440px; height: auto; margin-inline: auto; }
 .loop-diagram .le { stroke: var(--sl-color-gray-4); stroke-width: 1.25; }
 .loop-diagram .lb { stroke: var(--sl-color-accent); stroke-width: 1.75; }
 .loop-diagram .lhd { fill: var(--sl-color-accent); }
-.loop-diagram .ll {
-  font-family: var(--sl-font-mono);
-  font-size: 13.5px;
-  fill: var(--sl-color-text);
-}
+.loop-diagram .ll { font-family: var(--sl-font-mono); font-size: 13.5px; fill: var(--sl-color-text); }
 .loop-diagram .lh-node { font-weight: 600; }
 @media (prefers-reduced-motion: no-preference) {
   .loop-diagram .lb {

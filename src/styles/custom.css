@@ -1,0 +1,107 @@
+/* Rayo OS — editorial-calm theme.
+   Anchor: indigo seed oklch(0.53 0.125 294), "considered tool" calm authority.
+   Type carries the brand (Bricolage display + Hanken body + Geist Mono for the
+   real commands). Pure surfaces, one committed accent, generous space.
+   No serif-magazine affectation, no cream, no cards-by-reflex. */
+
+@import '@fontsource-variable/hanken-grotesk';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/geist-mono';
+
+:root {
+  --sl-font: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --sl-font-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', var(--sl-font);
+
+  /* Dark (default): deep cool near-black, bright indigo */
+  --sl-color-accent-low: oklch(0.30 0.07 294);
+  --sl-color-accent: oklch(0.62 0.15 294);
+  --sl-color-accent-high: oklch(0.88 0.06 294);
+  --sl-color-white: oklch(0.97 0.004 294);
+  --sl-color-black: oklch(0.17 0.012 294);
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: oklch(0.93 0.035 294);
+  --sl-color-accent: oklch(0.52 0.15 294);
+  --sl-color-accent-high: oklch(0.37 0.12 294);
+  --sl-color-white: oklch(0.22 0.012 294); /* darkest = text */
+  --sl-color-black: oklch(1 0 0);          /* lightest = bg, pure white */
+}
+
+/* Headings: display face, editorial weight + tracking */
+.sl-markdown-content :is(h1, h2),
+.content-panel h1 {
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+  line-height: 1.12;
+}
+.sl-markdown-content h1 { font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.1rem); }
+.sl-markdown-content h2 { font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.2rem); margin-top: 2.4em; }
+.sl-markdown-content :is(h3, h4) { font-weight: 600; letter-spacing: -0.008em; }
+
+/* Body: comfortable weight + measure */
+.sl-markdown-content { font-weight: 380; line-height: 1.72; }
+.sl-markdown-content :is(p, li) { max-width: 72ch; }
+:root { --sl-line-height: 1.72; }
+
+/* Wordmark */
+.site-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Inline code = the real commands. Terminal-native, considered, not loud. */
+.sl-markdown-content code:not(:where(pre code, a code)) {
+  font-family: var(--sl-font-mono);
+  font-size: 0.86em;
+  font-weight: 480;
+  background: color-mix(in oklch, var(--sl-color-accent) 10%, transparent);
+  color: var(--sl-color-text-accent);
+  border: 1px solid color-mix(in oklch, var(--sl-color-accent) 24%, transparent);
+  border-radius: 5px;
+  padding: 0.08em 0.38em;
+}
+
+/* Links: indigo, refined underline */
+.sl-markdown-content a:not(:where(.not-content *)) {
+  color: var(--sl-color-text-accent);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklch, currentColor 38%, transparent);
+}
+.sl-markdown-content a:hover { text-decoration-color: currentColor; }
+
+/* Splash hero — calm, large, balanced */
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.9rem, 1.6rem + 5vw, 5rem);
+  letter-spacing: -0.038em;
+  line-height: 1.0;
+  text-wrap: balance;
+}
+.hero .tagline {
+  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.35rem);
+  max-width: 44ch;
+  font-weight: 400;
+  color: var(--sl-color-gray-2);
+}
+
+/* Tables (the routing + skill maps) read as quiet rules, not cards */
+.sl-markdown-content table { font-size: 0.95em; }
+.sl-markdown-content th { font-weight: 600; letter-spacing: -0.005em; }
+
+/* One calm entrance, reduced-motion safe */
+@media (prefers-reduced-motion: no-preference) {
+  .hero > * { animation: rayo-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .hero > *:nth-child(2) { animation-delay: 0.05s; }
+  .hero > *:nth-child(3) { animation-delay: 0.1s; }
+  @keyframes rayo-rise {
+    from { opacity: 0; transform: translateY(9px); }
+    to { opacity: 1; transform: none; }
+  }
+}

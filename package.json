@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.40.0",
+    "@fontsource-variable/bricolage-grotesque": "^5.2.10",
+    "@fontsource-variable/geist-mono": "^5.2.8",
+    "@fontsource-variable/hanken-grotesk": "^5.2.8",
     "astro": "^6.4.5",
     "sharp": "^0.34.5"
   }

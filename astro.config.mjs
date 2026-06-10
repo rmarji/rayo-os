@@ -8,6 +8,7 @@ export default defineConfig({
     starlight({
       title: 'Rayo OS',
       description: 'Decision skills for Claude Code. A loop, not a list.',
+      customCss: ['./src/styles/custom.css'],
       sidebar: [
         { label: 'Start', items: [{ label: 'Overview', slug: 'index' }] },
         {

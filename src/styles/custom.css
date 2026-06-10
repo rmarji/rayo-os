@@ -105,3 +105,29 @@
     to { opacity: 1; transform: none; }
   }
 }
+
+/* Home hero: the decide-loop diagram (hero.image.html). Mono labels, hairline
+   forward edges, indigo return arc that draws on load. */
+.loop-diagram {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  margin-inline: auto;
+}
+.loop-diagram .le { stroke: var(--sl-color-gray-4); stroke-width: 1.25; }
+.loop-diagram .lb { stroke: var(--sl-color-accent); stroke-width: 1.75; }
+.loop-diagram .lhd { fill: var(--sl-color-accent); }
+.loop-diagram .ll {
+  font-family: var(--sl-font-mono);
+  font-size: 13.5px;
+  fill: var(--sl-color-text);
+}
+.loop-diagram .lh-node { font-weight: 600; }
+@media (prefers-reduced-motion: no-preference) {
+  .loop-diagram .lb {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    animation: rayo-draw 1.2s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes rayo-draw { to { stroke-dashoffset: 0; } }
+}
